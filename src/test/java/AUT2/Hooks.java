@@ -5,6 +5,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import com.github.mkolisnyk.cucumber.runner.ExtendedCucumberOptions;
 import com.github.mkolisnyk.cucumber.runner.ExtendedCucumber;
+import org.junit.AfterClass;
 
 
 /**
@@ -14,18 +15,7 @@ public class Hooks {
 
     @After
     public void afterAll() {
-        System.out.println("after all");
-        CucumberDetailedResults results = new CucumberDetailedResults();
-        results.setOutputDirectory("target/");
-        results.setOutputName("cucumber-results-width");
-        results.setSourceFile("target/cucumber.json");
-        results.setScreenShotLocation("../src/test/resources/");
-        results.setScreenShotWidth("200px");
-        try {
-            results.executeDetailedResultsReport(true, false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
 
     }
 

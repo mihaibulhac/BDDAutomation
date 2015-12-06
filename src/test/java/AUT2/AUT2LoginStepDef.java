@@ -4,6 +4,7 @@ import appObjects.TADHLogin;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import selenium.WebDriver;
+import util.ReadProperties;
 
 /**
  * Created by Mihai on 12/5/2015.
@@ -34,13 +35,13 @@ public class AUT2LoginStepDef {
 
 
     @Then("^I open hotel application and login with \"([^\"]*)\"$")
-    public void i_open_hotel_application_and_login_with(String arg1) throws Throwable {
+    public void i_open_hotel_application_and_login_with(String username) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
 
         webDriver.openNewBrowser();
         webDriver.gotoURL("http://newtours.demoaut.com/");
-        TADHLogin.txtUsername.setText(arg1);
-        TADHLogin.txtPassword.setText(arg1);
+        TADHLogin.txtUsername.setText(username);
+        TADHLogin.txtPassword.setText(ReadProperties.readProperty("TestUsers.properties",username));
         TADHLogin.btnSignIn.click();
     }
 }
