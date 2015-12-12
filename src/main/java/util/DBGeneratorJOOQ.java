@@ -7,9 +7,9 @@ package util;
 import org.jooq.util.GenerationTool;
 import org.jooq.util.jaxb.*;
 
-import util.db.configuration.JooqGeneratorConfiguration;
 
- class DBGenerator {
+
+ class DBGeneratorJOOQ {
 
      public static void main(String[] args){
 
